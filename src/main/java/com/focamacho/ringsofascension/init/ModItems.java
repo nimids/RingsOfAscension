@@ -1,10 +1,13 @@
 package com.focamacho.ringsofascension.init;
 
+import com.focamacho.ringsofascension.RingsOfAscension;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import com.focamacho.ringsofascension.item.rings.*;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +51,12 @@ public class ModItems {
     }
 
     public static void registerRing(ItemRingBase ring) {
-        Registry.register(Registry.ITEM, new Identifier("ringsofascension", ring.getRingName()), ring);
+        Registry.register(Registries.ITEM, new Identifier("ringsofascension", ring.getRingName()), ring);
+        if(ring.isEnabled()){
+            ItemGroupEvents.modifyEntriesEvent(RingsOfAscension.creativeTab).register(content -> {
+                content.add(ring);
+            });
+        }
     }
 
 }

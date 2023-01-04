@@ -25,7 +25,7 @@ public class ItemRingBase extends TrinketItem {
     public final List<Identifier> locations = new ArrayList<>();
 
     public ItemRingBase(String name, int tier, String tooltip, boolean enabled, String locations) {
-        super(new Settings().group(enabled ? RingsOfAscension.creativeTab : null).maxCount(1));
+        super(new Settings().maxCount(1));
         this.ringName = name;
         this.tier = tier;
         this.tooltip = tooltip;

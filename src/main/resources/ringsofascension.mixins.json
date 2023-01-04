@@ -4,7 +4,9 @@
   "package": "com.focamacho.ringsofascension.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "LivingEntityMixin"
+    "LivingEntityMixin",
+    "StatusEffectInstanceMixin",
+    "StatusEffectUtilMixin"
   ],
   "client": [
     "ItemStackMixin"
